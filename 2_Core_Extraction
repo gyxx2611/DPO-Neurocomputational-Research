@@ -1,0 +1,21 @@
+# Core Information Extraction
+
+## Critical Hypothesis of the Target Paper
+The central hypothesis of Rafailov et al. (2024) is that optimizing Artificial Intelligence policies (neural alignment) can be formulated exactly as a binary classification problem. The hypothesis posits that the complex reward simulation phase of traditional RLHF can be mathematically eliminated.
+
+## Methodology and Mathematical Formulation
+The methodology relies on utilizing the analytical relationship between the optimal reward function and the optimal policy. The paper derives a simple log-likelihood loss function, termed the DPO Loss:
+
+$$\mathcal{L}_{DPO}(\pi_\theta; \pi_{ref}) = -\mathbb{E}_{(x, y_w, y_l) \sim D} \left[ \log \sigma \left( \beta \log \frac{\pi_\theta(y_w|x)}{\pi_{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_{ref}(y_l|x)} \right) \right]$$
+
+Where:
+* $\pi_\theta$ is the neural network policy being trained.
+* $\pi_{ref}$ is the frozen reference policy.
+* $y_w$ and $y_l$ are the preferred (winning) and rejected (losing) responses to a prompt $x$, respectively.
+* $\beta$ is the temperature control hyperparameter.
+
+## Critical Data for Reproduction
+To test the hypothesis, the model requires a dataset structured in triplets:
+1. **Prompt:** The cognitive stimulus/context.
+2. **Chosen:** The neurally aligned response that matches human preference.
+3. **Rejected:** The misaligned or incorrect response.

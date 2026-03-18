@@ -1,0 +1,18 @@
+# Literature Review: Evolution of Neural Model Alignment
+
+To fully grasp the innovation presented in the target paper (DPO), it is imperative to trace the research lineage that established Reinforcement Learning from Human Feedback (RLHF).
+
+## Prerequisite Papers (Foundational)
+
+**1. "Deep Reinforcement Learning from Human Preferences" (Christiano et al., 2017)**
+* **Relevance:** This study laid the groundwork for training autonomous agents using human preferences rather than manually engineered reward functions.
+* **Contribution:** Demonstrated that neural networks can learn an implicit reward function from binary comparisons (Choice A vs. Choice B).
+
+**2. "Training language models to follow instructions with human feedback" (Ouyang et al., 2022)**
+* **Relevance:** The seminal paper that introduced InstructGPT, consolidating the standard RLHF pipeline into three steps (Supervised Fine-Tuning, Reward Modeling, and Proximal Policy Optimization - PPO).
+* **Identified Bottleneck:** The heavy reliance on the PPO algorithm, which is highly unstable and computationally expensive.
+
+## The Target Paper
+
+**3. "Direct Preference Optimization: Your Language Model is Secretly a Reward Model" (Rafailov et al., 2024)**
+* **Relevance:** Proposes a major paradigm shift. Instead of training a separate reward model and subsequently applying reinforcement learning (PPO), the authors mathematically prove that the language model itself can act as a direct preference optimizer.
